@@ -1,2 +1,5 @@
 # Akcelerace-NNLM
-Files for Bachelors work
+Files for Bachelors work.
+
+
+Unfinished, bunch of errors inside!
