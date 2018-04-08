@@ -49,17 +49,8 @@ class NNModel(nn.Module):
 			return output # logsoftmax pre pravdepodobnosti
 	
 		if self.training == False: #eval
-			#self.eval_count += 1
 			for i, hist in enumerate(self.hist):
 				if torch.equal(hist, input):
-					#self.hit_count += 1
-					#print(self.hit_count)
-					#print(self.eval_count)
-					print('hit')
-					print('hit')
-					print('hit')
-					print('hit')
-					print('hit')
 					output = self.hid_val[i]
 
 					output = self.decoder(output) # [32][|V|]
@@ -74,7 +65,7 @@ class NNModel(nn.Module):
 			output = self.emb2hid(emb)
 			output = self.actF(output)
 			
-			if(self.hist_size != 300):
+			if(self.hist_size < 300 - 1):
 				self.hist.append(input)
 				self.hid_val.append(output)
 				self.hist_size += 1
